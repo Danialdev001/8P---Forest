@@ -61,7 +61,7 @@ btnsex.TextWrapped = true
 UICorner_2.Parent = btnsex
 
 tbxVictim.Name = "tbxVictim"
-tbxVictim.Parent = ScreenGui
+tbxVictim.Parent = Frame
 tbxVictim.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 tbxVictim.BorderColor3 = Color3.fromRGB(0, 0, 0)
 tbxVictim.BorderSizePixel = 0

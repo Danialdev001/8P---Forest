@@ -24,6 +24,10 @@ Frame.BorderSizePixel = 0
 Frame.Position = UDim2.new(0.1954588, 0, 0.266666681, 0)
 Frame.Size = UDim2.new(0, 494, 0, 294)
 
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
+
 TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
@@ -55,35 +59,6 @@ btnsex.TextSize = 14.000
 btnsex.TextWrapped = true
 
 UICorner_2.Parent = btnsex
-btnSex.MouseButton1Click:Connect(function()
-    if isScriptActive then
-        -- Desactivar el script y detener la animación
-        isScriptActive = false
-        btnSex.Text = "Let's FUCK!!"
-        if animationInstance then
-            animationInstance:Stop()
-        end
-        if playerConnection then
-            playerConnection:Disconnect()
-        end
-    else
-        -- Activar el script y comenzar la animación
-        isScriptActive = true
-        btnSex.Text = "Stop Fucking"
-        
-        -- Código para activar el script y la animación
-        local playerNamePartial = tbxVictim.Text
-        local player = findPlayerByPartialName(playerNamePartial)
-
-        if player then
-            performFuckingAction(player)
-        else
-            -- Mostrar notificación de jugador no encontrado
-            showPlayerNotFoundError()
-            return
-        end
-    end
-end)
 
 tbxVictim.Name = "tbxVictim"
 tbxVictim.Parent = ScreenGui
@@ -100,7 +75,9 @@ tbxVictim.TextSize = 14.000
 tbxVictim.TextWrapped = true
 
 UICorner_3.Parent = tbxVictim
---scripts
+
+--Scripts
+
 btnSex.MouseButton1Click:Connect(function()
     if isScriptActive then
         -- Desactivar el script y detener la animación

@@ -55,6 +55,35 @@ btnsex.TextSize = 14.000
 btnsex.TextWrapped = true
 
 UICorner_2.Parent = btnsex
+btnSex.MouseButton1Click:Connect(function()
+    if isScriptActive then
+        -- Desactivar el script y detener la animación
+        isScriptActive = false
+        btnSex.Text = "Let's FUCK!!"
+        if animationInstance then
+            animationInstance:Stop()
+        end
+        if playerConnection then
+            playerConnection:Disconnect()
+        end
+    else
+        -- Activar el script y comenzar la animación
+        isScriptActive = true
+        btnSex.Text = "Stop Fucking"
+        
+        -- Código para activar el script y la animación
+        local playerNamePartial = tbxVictim.Text
+        local player = findPlayerByPartialName(playerNamePartial)
+
+        if player then
+            performFuckingAction(player)
+        else
+            -- Mostrar notificación de jugador no encontrado
+            showPlayerNotFoundError()
+            return
+        end
+    end
+end)
 
 tbxVictim.Name = "tbxVictim"
 tbxVictim.Parent = ScreenGui
@@ -71,37 +100,33 @@ tbxVictim.TextSize = 14.000
 tbxVictim.TextWrapped = true
 
 UICorner_3.Parent = tbxVictim
+--scripts
+btnSex.MouseButton1Click:Connect(function()
+    if isScriptActive then
+        -- Desactivar el script y detener la animación
+        isScriptActive = false
+        btnSex.Text = "Let's FUCK!!"
+        if animationInstance then
+            animationInstance:Stop()
+        end
+        if playerConnection then
+            playerConnection:Disconnect()
+        end
+    else
+        -- Activar el script y comenzar la animación
+        isScriptActive = true
+        btnSex.Text = "Stop Fucking"
+        
+        -- Código para activar el script y la animación
+        local playerNamePartial = tbxVictim.Text
+        local player = findPlayerByPartialName(playerNamePartial)
 
--- Scripts:
-
-local function LIOR_fake_script() -- btnsex.LocalScript 
-	local script = Instance.new('LocalScript', btnsex)
-
-	btnsex.MouseButton1Down:Connect(function()
-		local hummy = game:GetService("Players").LocalPlayer.Character.Humanoid
-	
-		btnsex.MouseButton1Click:Connect(function()
-	
-			local playerName = tbxVictim.Text
-			for i, hummy in ipairs(hummy) do
-				if hummy.Name:sub(1, #playerName):lower() == playerName:lower() then
-			local stupid = Instance.new('Animation')
-			stupid.AnimationId = 'rbxassetid://148840371'
-			hummy = game:GetService("Players").LocalPlayer.Character.Humanoid
-			pcall(function()
-				hummy.Parent.Pants:Destroy()
-			end)
-			pcall(function()
-				hummy.Parent.Shirt:Destroy()
-			end)
-			local notfunny = hummy:LoadAnimation(stupid)
-			notfunny:Play()
-			notfunny:AdjustSpeed(10)
-			while hummy.Parent.Parent ~= nil do
-				wait()
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[tbxVictim.Text].Character.HumanoidRootPart.CFrame
-			end
-		end)
-	end)
-end
-coroutine.wrap(LIOR_fake_script)()
+        if player then
+            performFuckingAction(player)
+        else
+            -- Mostrar notificación de jugador no encontrado
+            showPlayerNotFoundError()
+            return
+        end
+    end
+end)

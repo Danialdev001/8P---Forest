@@ -25,6 +25,10 @@ Frame.Size = UDim2.new(0, 446, 0, 258)
 
 UICorner.Parent = Frame
 
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = ScreenGui
+
 TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
